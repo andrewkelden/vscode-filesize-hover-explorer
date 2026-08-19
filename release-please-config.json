@@ -1,9 +1,9 @@
 {
-  "packages": {
-    ".": {
-      "release-type": "node",
-      "package-name": "filesize-hover-explorer",
-      "include-component-in-tag": false
-    }
-  }
+	"packages": {
+		".": {
+			"release-type": "node",
+			"package-name": "filesize-hover-explorer",
+			"include-component-in-tag": false
+		}
+	}
 }

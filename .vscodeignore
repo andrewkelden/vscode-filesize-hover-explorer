@@ -6,6 +6,7 @@ src/**/*.test.js
 test/**
 .gitignore
 .nvmrc
+.prettierrc.json
 .git/**
 images/**
 .yarnrc

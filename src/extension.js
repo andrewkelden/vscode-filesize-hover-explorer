@@ -9,7 +9,7 @@ async function activate() {
 	let decorator = await createDecoratorClass();
 
 	const watcher = vscode.workspace.createFileSystemWatcher('**/*');
-	watcher.onDidChange(uri => decorator.onFileChanged(uri));
+	watcher.onDidChange((uri) => decorator.onFileChanged(uri));
 }
 
 /**
@@ -21,7 +21,7 @@ async function createDecoratorClass() {
 		constructor() {
 			this.disposables = [];
 			this._onDidChangeFileDecorations = new vscode.EventEmitter();
-            this.disposables.push(this._onDidChangeFileDecorations);
+			this.disposables.push(this._onDidChangeFileDecorations);
 			this.disposables.push(vscode.window.registerFileDecorationProvider(this));
 		}
 
@@ -37,22 +37,22 @@ async function createDecoratorClass() {
 
 			if (fileStats.type === vscode.FileType.File) {
 				return {
-					tooltip: formatFileSize(fileStats.size)
+					tooltip: formatFileSize(fileStats.size),
 				};
 			}
 		}
 
 		// Add this new method
-        onFileChanged(uri) {
-            this._onDidChangeFileDecorations.fire([uri]);
-        }
+		onFileChanged(uri) {
+			this._onDidChangeFileDecorations.fire([uri]);
+		}
 
-        // Add this getter
-        get onDidChangeFileDecorations() {
-            return this._onDidChangeFileDecorations.event;
-        }
+		// Add this getter
+		get onDidChangeFileDecorations() {
+			return this._onDidChangeFileDecorations.event;
+		}
 
-		dispose () {
+		dispose() {
 			this.disposables.forEach((d) => d.dispose());
 		}
 	}
@@ -63,5 +63,5 @@ function deactivate() {}
 
 module.exports = {
 	activate,
-	deactivate
-}
+	deactivate,
+};
