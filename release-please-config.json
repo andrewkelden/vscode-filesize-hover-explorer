@@ -3,7 +3,15 @@
 		".": {
 			"release-type": "node",
 			"package-name": "filesize-hover-explorer",
-			"include-component-in-tag": false
+			"include-component-in-tag": false,
+			"changelog-sections": [
+				{ "type": "feat", "section": "Features" },
+				{ "type": "fix", "section": "Bug Fixes" },
+				{ "type": "deps", "section": "Dependencies" },
+				{ "type": "build", "section": "Build System" },
+				{ "type": "ci", "section": "Continuous Integration" },
+				{ "type": "refactor", "section": "Code Refactoring" }
+			]
 		}
 	}
 }
