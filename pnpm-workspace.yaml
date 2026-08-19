@@ -1,0 +1,16 @@
+packages: []
+
+enableGlobalVirtualStore: false
+verifyDepsBeforeRun: error
+verifyStoreIntegrity: true
+strictStorePkgContentCheck: true
+strictSsl: true
+engineStrict: true
+ignoreScripts: true
+blockExoticSubdeps: true
+minimumReleaseAge: 7200
+minimumReleaseAgeStrict: true
+minimumReleaseAgeIgnoreMissingTime: false
+trustPolicy: no-downgrade
+trustPolicyIgnoreAfter: 7200
+saveExact: true
