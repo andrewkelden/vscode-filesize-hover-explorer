@@ -1,0 +1,43 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: daily
+    cooldown:
+      default-days: 5
+      semver-major-days: 30
+      semver-minor-days: 7
+      semver-patch-days: 5
+    open-pull-requests-limit: 1
+    assignees:
+      - andrewkelden
+    commit-message:
+      prefix: deps
+    groups:
+      routine-npm:
+        patterns:
+          - "*"
+    ignore:
+      - dependency-name: "*"
+        update-types:
+          - version-update:semver-major
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: daily
+    cooldown:
+      default-days: 5
+    open-pull-requests-limit: 1
+    assignees:
+      - andrewkelden
+    commit-message:
+      prefix: deps
+    groups:
+      routine-actions:
+        patterns:
+          - "*"
+    ignore:
+      - dependency-name: "*"
+        update-types:
+          - version-update:semver-major

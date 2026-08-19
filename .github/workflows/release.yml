@@ -1,0 +1,52 @@
+name: Release
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: marketplace-release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: googleapis/release-please-action@5c625bfb5d1ff62eadeeb3772007f7f66fdcf071
+        id: release
+      - if: ${{ steps.release.outputs.release_created }}
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+      - if: ${{ steps.release.outputs.release_created }}
+        uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1
+      - if: ${{ steps.release.outputs.release_created }}
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - name: Verify dependency policy
+        if: ${{ steps.release.outputs.release_created }}
+        run: |
+          pnpm install --lockfile-only --resolution-only
+          git diff --exit-code -- package.json pnpm-lock.yaml
+      - if: ${{ steps.release.outputs.release_created }}
+        run: pnpm install --frozen-lockfile
+      - if: ${{ steps.release.outputs.release_created }}
+        run: pnpm audit --audit-level=high
+      - if: ${{ steps.release.outputs.release_created }}
+        run: pnpm test
+      - name: Verify Marketplace token
+        if: ${{ steps.release.outputs.release_created }}
+        run: pnpm exec vsce verify-pat cyberBabushkin --pat "$VSCE_PAT"
+        env:
+          VSCE_PAT: ${{ secrets.VSCE_PAT }}
+      - name: Publish to VS Code Marketplace
+        if: ${{ steps.release.outputs.release_created }}
+        run: pnpm exec vsce publish --no-dependencies --pat "$VSCE_PAT"
+        env:
+          VSCE_PAT: ${{ secrets.VSCE_PAT }}
