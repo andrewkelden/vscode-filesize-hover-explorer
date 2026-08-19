@@ -16,6 +16,11 @@ updates:
       prefix: deps
     groups:
       routine-npm:
+        applies-to: version-updates
+        patterns:
+          - '*'
+      security-npm:
+        applies-to: security-updates
         patterns:
           - '*'
     ignore:
@@ -35,6 +40,11 @@ updates:
       prefix: deps
     groups:
       routine-actions:
+        applies-to: version-updates
+        patterns:
+          - '*'
+      security-actions:
+        applies-to: security-updates
         patterns:
           - '*'
     ignore:
