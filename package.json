@@ -1,42 +1,45 @@
 {
-  "name": "filesize-hover-explorer",
-  "displayName": "Filesize Hover Explorer",
-  "description": "Shows file sizes directly in VS Code's Explorer view with human-readable format.",
-  "version": "1.0.2",
-  "categories": [
-    "Other"
-  ],
-  "license": "MIT",
-  "publisher": "cyberBabushkin",
-  "author": {
-    "name": "Andrey Babushkin"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/cyberBabushkin/vscode-filesize-hover-explorer"
-  },
-  "activationEvents": [
-    "onStartupFinished"
-  ],
-  "main": "./src/extension.js",
-  "contributes": {
-    "commands": [],
-    "capabilities": {}
-  },
-  "engines": {
-    "vscode": "^1.76.0"
-  },
-  "scripts": {
-    "lint": "eslint .",
-    "test": "node --test",
-    "pretest": "pnpm run lint"
-  },
-  "packageManager": "pnpm@11.22.0",
-  "devDependencies": {
-    "@types/vscode": ">=1.76.0",
-    "@types/node": "20.x",
-    "@vscode/vsce": "3.9.2",
-    "eslint": "^8.57.1",
-    "typescript": "^5.9.3"
-  }
+	"name": "filesize-hover-explorer",
+	"displayName": "Filesize Hover Explorer",
+	"description": "Shows file sizes directly in VS Code's Explorer view with human-readable format.",
+	"version": "1.0.2",
+	"categories": [
+		"Other"
+	],
+	"license": "MIT",
+	"publisher": "cyberBabushkin",
+	"author": {
+		"name": "Andrey Babushkin"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/cyberBabushkin/vscode-filesize-hover-explorer"
+	},
+	"activationEvents": [
+		"onStartupFinished"
+	],
+	"main": "./src/extension.js",
+	"contributes": {
+		"commands": [],
+		"capabilities": {}
+	},
+	"engines": {
+		"vscode": "^1.76.0"
+	},
+	"scripts": {
+		"format": "prettier --write \"src/**/*.js\" \".github/**/*.yml\" \"*.json\" \".*.json\" \"pnpm-workspace.yaml\"",
+		"format:check": "prettier --check \"src/**/*.js\" \".github/**/*.yml\" \"*.json\" \".*.json\" \"pnpm-workspace.yaml\"",
+		"lint": "eslint .",
+		"typecheck": "tsc -p jsconfig.json --noEmit",
+		"test": "node --test"
+	},
+	"packageManager": "pnpm@11.22.0",
+	"devDependencies": {
+		"@types/node": "20.x",
+		"@types/vscode": ">=1.76.0",
+		"@vscode/vsce": "3.9.2",
+		"eslint": "^8.57.1",
+		"prettier": "3.9.6",
+		"typescript": "^5.9.3"
+	}
 }

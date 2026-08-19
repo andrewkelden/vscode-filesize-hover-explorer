@@ -39,6 +39,12 @@ jobs:
       - if: ${{ steps.release.outputs.release_created }}
         run: pnpm audit --audit-level=high
       - if: ${{ steps.release.outputs.release_created }}
+        run: pnpm run format:check
+      - if: ${{ steps.release.outputs.release_created }}
+        run: pnpm run lint
+      - if: ${{ steps.release.outputs.release_created }}
+        run: pnpm run typecheck
+      - if: ${{ steps.release.outputs.release_created }}
         run: pnpm test
       - name: Verify Marketplace token
         if: ${{ steps.release.outputs.release_created }}

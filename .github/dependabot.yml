@@ -17,9 +17,9 @@ updates:
     groups:
       routine-npm:
         patterns:
-          - "*"
+          - '*'
     ignore:
-      - dependency-name: "*"
+      - dependency-name: '*'
         update-types:
           - version-update:semver-major
   - package-ecosystem: github-actions
@@ -36,8 +36,8 @@ updates:
     groups:
       routine-actions:
         patterns:
-          - "*"
+          - '*'
     ignore:
-      - dependency-name: "*"
+      - dependency-name: '*'
         update-types:
           - version-update:semver-major

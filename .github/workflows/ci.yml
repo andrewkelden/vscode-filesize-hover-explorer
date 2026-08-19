@@ -24,4 +24,7 @@ jobs:
           git diff --exit-code -- package.json pnpm-lock.yaml
       - run: pnpm install --frozen-lockfile
       - run: pnpm audit --audit-level=high
+      - run: pnpm run format:check
+      - run: pnpm run lint
+      - run: pnpm run typecheck
       - run: pnpm test
