@@ -1,4 +1,5 @@
 const vscode = require('vscode');
+const { formatFileSize } = require('./formatFileSize');
 
 /**
  * param {vscode.ExtensionContext} context
@@ -35,19 +36,8 @@ async function createDecoratorClass() {
 			const fileStats = await vscode.workspace.fs.stat(uri);
 
 			if (fileStats.type === vscode.FileType.File) {
-				const fileSize = fileStats.size;
-				const units = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
-				let size = fileSize;
-				let unitIndex = 0;
-
-				while (size >= 1024 && unitIndex < units.length - 1) {
-					size /= 1024;
-					unitIndex++;
-				}
-
-				const prettySize = `${size.toFixed(1)}${units[unitIndex]}`;
 				return {
-					tooltip: prettySize
+					tooltip: formatFileSize(fileStats.size)
 				};
 			}
 		}
