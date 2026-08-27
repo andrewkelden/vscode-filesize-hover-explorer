@@ -1,5 +1,12 @@
 # Change Log
 
+## [1.0.4](https://github.com/andrewkelden/vscode-filesize-hover-explorer/compare/v1.0.3...v1.0.4) (2026-08-27)
+
+
+### Dependencies
+
+* bump @types/vscode in the routine-npm group ([#11](https://github.com/andrewkelden/vscode-filesize-hover-explorer/issues/11)) ([b1299b8](https://github.com/andrewkelden/vscode-filesize-hover-explorer/commit/b1299b8a6ccf9d68a493145b23953fea55b4c4d9))
+
 ## [1.0.3](https://github.com/andrewkelden/vscode-filesize-hover-explorer/compare/v1.0.2...v1.0.3) (2026-08-19)
 
 
