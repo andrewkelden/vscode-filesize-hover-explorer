@@ -2,7 +2,7 @@
 	"name": "filesize-hover-explorer",
 	"displayName": "Filesize Hover Explorer",
 	"description": "Shows file sizes directly in VS Code's Explorer view with human-readable format.",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"categories": [
 		"Other"
 	],
